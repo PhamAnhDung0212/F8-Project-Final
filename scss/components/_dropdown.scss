@@ -1,0 +1,118 @@
+.dropdown {
+    --dropdown-inner-height: min(582px, calc(100vh - 158px));
+    --dropdown-padding: 30px;
+    --main-menu-width: 292px;
+
+    position: absolute;
+    left: 0;
+    padding-top: 54px;
+    width: min(1240px, 100%);
+    display: none;
+
+    &__inner {
+        position: relative;
+        height: var(--dropdown-inner-height);
+        padding: var(--dropdown-padding);
+        border-radius: 20px;
+        background: var(--dropdown-bg);
+        box-shadow: 0 40px 90px 20px var(--dropdown-box-shadow);
+
+        &::before {
+            content: url(./icons/dropdown-arrow.svg);
+            position: absolute;
+            top: -14px;
+            left: var(--arrow-left-pos);
+            filter: var(--dropdown-arrow);
+        }
+    }
+}
+
+.menu-main__wrapper {
+    width: var(--main-menu-width);
+    height: calc(var(--dropdown-inner-height) - var(--dropdown-padding) * 2);
+    border-right: var(--dropdown-border);
+    overflow-y: auto;
+}
+
+.menu-column {
+    display: flex;
+    gap: 14px;
+    border: 1px dashed orange;
+
+    & + & {
+        margin-top: 29px;
+    }
+
+    &__icons {
+        position: relative;
+        width: 36px;
+        height: 36px;
+    }
+
+    &__icon-1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    &__icon-2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+    }
+
+    &__heading {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 150%;
+        padding-bottom: 19px;
+        white-space: nowrap;
+    }
+
+    &__item {
+        padding: 7px 0;
+
+        &--active .menu-sub__wrapper {
+            display: grid;
+        }
+
+        &--active > .menu-column__link,
+        &:hover > .menu-column__link {
+            color: var(--dropdown-active-color);
+
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 142.857%;
+        }
+    }
+
+    &__link {
+        font-size: 1.4rem;
+
+        line-height: 142.857%;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--text-color-hover);
+        }
+    }
+}
+
+.menu-sub__wrapper {
+    position: absolute;
+    top: var(--dropdown-padding);
+    left: calc(var(--main-menu-width) + var(--dropdown-padding) * 2);
+    bottom: var(--dropdown-padding);
+    right: 0;
+    display: none;
+    // display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--dropdown-padding) * 2);
+    overflow-y: auto;
+}

@@ -1,0 +1,125 @@
+@use "../abstracts";
+
+%FlexAlignCenter {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background: var(--header-background);
+}
+
+.icon-color {
+    filter: var(--icon-color);
+}
+
+.top-bar {
+    position: relative;
+    @extend %FlexAlignCenter;
+    justify-content: space-between;
+    padding: 30px 0;   
+
+    &__more {
+        display: none;
+    }
+
+    @include abstracts.breakpoint(lg) {
+        &__more {
+            display: block;
+        }
+    }
+}
+
+.navbar {
+    @include abstracts.breakpoint(lg) {
+        display: none;
+    }
+
+    &__list {
+        @extend %FlexAlignCenter;
+    }
+
+    &__item {
+        &:hover .dropdown {
+            display: block;
+        }
+
+        &:first-child a {
+            margin-left: 0;
+        }
+        &:last-child a {
+            margin-right: 0;
+        }
+    }
+
+    &__link {
+        @extend %FlexAlignCenter;
+        gap: 6px;
+
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+        height: 50px;
+        padding: 0 15px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--text-color-hover);
+        }
+    }
+}
+
+.navbar-cta {
+    @extend %FlexAlignCenter;
+    gap: 20px;
+
+    &__btn {
+        @extend %FlexAlignCenter;
+        gap: 10px;
+        border-radius: 8px;
+        background: var(--top-bar-btn-bg);
+        box-shadow: 0 20px 60px 10px var(--top-bar-btn-shadow);
+
+        padding: 10px 20px;
+
+        @include abstracts.breakpoint(md) {
+            display: none;
+        }
+    }
+
+    &__btn--single {
+        padding: 13px;
+
+        @include abstracts.breakpoint(xl) {
+            display: none;
+        }
+    }
+
+    &__icon {
+        filter: var(--top-bar-icon-color);
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 146.667%;
+    }
+
+    &__separate {
+        width: 1px;
+        height: 30px;
+        background: var(--top-bar-separate-bg);
+        margin: 0 20px;
+    }
+
+    &__avatar {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+
+        border-radius: 8px;
+        background: #dfd2fa;
+        box-shadow: 0 4px 14px 2px rgba(0, 0, 0, 0.08);
+    }
+}
