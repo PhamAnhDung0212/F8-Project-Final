@@ -1159,7 +1159,6 @@ button, input, select, textarea {
 .menu-column {
   display: flex;
   gap: 14px;
-  border: 1px dashed orange;
 }
 .menu-column + .menu-column {
   margin-top: 29px;
@@ -1223,6 +1222,12 @@ button, input, select, textarea {
   grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--dropdown-padding) * 2);
   overflow-y: auto;
+}
+
+.menu-sub__wrapper--no-main {
+  left: var(--dropdown-padding);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .navbar-cta__btn, .navbar-cta, .navbar__link, .navbar__list, .top-bar {
@@ -1348,7 +1353,7 @@ html.dark {
   --text-color: #fff;
   --header-background: #171c28;
   --background-color: #292e39;
-  --text-color-hover: #333;
+  --text-color-hover: #0071dc;
   --top-bar-btn-bg: #292e39;
   --top-bar-btn-shadow: rgba(0, 0, 0, 0.2);
   --icon-color: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(60deg) brightness(104%)

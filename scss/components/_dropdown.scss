@@ -37,7 +37,6 @@
 .menu-column {
     display: flex;
     gap: 14px;
-    border: 1px dashed orange;
 
     & + & {
         margin-top: 29px;
@@ -115,4 +114,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--dropdown-padding) * 2);
     overflow-y: auto;
+}
+
+.menu-sub__wrapper--no-main {    
+    left: var(--dropdown-padding);    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  
 }
