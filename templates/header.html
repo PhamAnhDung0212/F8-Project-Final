@@ -1,13 +1,16 @@
 <div class="container">
     <div class="top-bar">
-        <button class="top-bar__more top-bar__icon">
+        <button class="top-bar__more icon__color js-toggle" toggle-target="#navbar">
             <img src="./assets/icons/more.svg" alt="" />
         </button>
         <div class="logo">
             <img class="logo__img" src="./assets/icons/logo.svg" alt="Logo" />
             <h1 class="logo__text">grocerymart</h1>
         </div>
-        <nav class="navbar">
+        <nav class="navbar hide" id="navbar">
+            <button class="navbar__toggle js-toggle" toggle-target="#navbar">
+                <img src="./assets/icons/arrow-left.svg" alt="">
+            </button>
             <ul class="navbar__list js-dropdown-list">
                 <!-- Department -->
                 <li class="navbar__item">
@@ -1658,6 +1661,7 @@
                 </li>
             </ul>
         </nav>
+        <div class="navbar__overlay"></div>
         <div class="navbar-cta">
             <button class="navbar-cta__btn navbar-cta__btn--single">
                 <img
